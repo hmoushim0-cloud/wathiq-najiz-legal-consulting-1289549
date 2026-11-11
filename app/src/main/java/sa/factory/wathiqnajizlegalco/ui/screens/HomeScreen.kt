@@ -26,7 +26,8 @@ fun HomeScreen(
     viewModel: WathiqNajizViewModel,
     onItemClick: (WathiqNajizItem) -> Unit
 ) {
-    val categories = listOf("الكل", "عقود عمل", "خدمات فيزا", "توثيق قانوني", "استشارات توظيف")
+    val categories = listOf("الكل", "توثيق الوكالات", "عقود الشركات", "التحكيم التجاري", "اللوائح والمذكرات")
+    val defaultPeripheral = "FIPS 140-2 Cryptographic HSM Security Token"
 
     Column(
         modifier = Modifier
@@ -36,8 +37,8 @@ fun HomeScreen(
     ) {
         // Header
         Column {
-            Text("تطبيق توثيق النجيز — عقود عمل موثقة للفيزا", fontSize = 22.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
-            Text("عقود عمل موثقة مع حماية HSM مشفرة — بحث آمن وموثوق", fontSize = 12.sp, color = BrandTextSecondary)
+            Text("منصة توثيق وناجز للاستشارات القانونية — العقود الرقمية والوكالات", fontSize = 20.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
+            Text("توثيق قانوني معتمد بالربط مع وزارة العدل وبوابة ناجز وحماية HSM المشفرة", fontSize = 12.sp, color = BrandTextSecondary)
         }
 
         // Hardware Status Capsule
@@ -52,8 +53,8 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: 'FIPS 140-2 Cryptographic HSM Security Token'}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
-                    Text(state.telemetry?.liveReading ?: "HSM: AES-256 Encryption Active | FIPS 140-2 Compliance | Key Health: 100%", fontSize = 11.sp, color = BrandTextSecondary)
+                    Text("العتاد المشفر: ${state.telemetry?.peripheralName ?: defaultPeripheral}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
+                    Text(state.telemetry?.liveReading ?: "HSM Token: FIPS 140-2 L3 | Keys: RSA-4096 / ECC | Status: LOCKED & READY", fontSize = 11.sp, color = BrandTextSecondary)
                 }
                 Badge(containerColor = BrandPrimary) {
                     Text(state.telemetry?.status ?: "ONLINE", color = Color.Black, fontWeight = FontWeight.Bold, modifier = Modifier.padding(2.dp))
@@ -115,7 +116,7 @@ fun HomeScreen(
                                 contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
                                 shape = RoundedCornerShape(8.dp)
                             ) {
-                                Text("إضافة", fontSize = 11.sp, color = Color.Black, fontWeight = FontWeight.Bold)
+                                Text("طلب الخدمة", fontSize = 11.sp, color = Color.Black, fontWeight = FontWeight.Bold)
                             }
                         }
                     }

@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:label="تطبيق توثيق النجيز — عقود عمل موثقة للفيزا"
+        android:label="منصة توثيق وناجز للاستشارات القانونية — العقود والوكالات"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
         <activity
